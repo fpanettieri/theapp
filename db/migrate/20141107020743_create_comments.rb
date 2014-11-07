@@ -1,9 +1,9 @@
 class CreateComments < ActiveRecord::Migration
   def change
     create_table :comments do |t|
-      t.integer :topic_id
-      t.integer :user_id
-      t.integer :parent_id
+      t.belongs_to :topic
+      t.belongs_to :user
+      t.references :parent
       t.integer :votes
       t.text :content
 

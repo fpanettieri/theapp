@@ -1,9 +1,9 @@
 class CreateTopics < ActiveRecord::Migration
   def change
     create_table :topics do |t|
-      t.integer :category_id
-      t.integer :location_id
-      t.integer :user_id
+      t.belongs_to :category
+      t.belongs_to :location
+      t.belongs_to :user
       t.string :subject
       t.integer :votes
       t.datetime :expires

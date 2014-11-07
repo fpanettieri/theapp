@@ -1,8 +1,8 @@
 class CreateCategories < ActiveRecord::Migration
   def change
     create_table :categories do |t|
-      t.integer :community_id
-      t.integer :template_id
+      t.belongs_to :community
+      t.belongs_to :template
       t.string :name
 
       t.timestamps
