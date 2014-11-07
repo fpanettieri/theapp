@@ -45,6 +45,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise', '~> 3.4.1'
+gem 'slim', '~> 2.1.0'
 
 # Map related gems
 gem 'gmaps4rails', '~> 2.1.2'

@@ -17,5 +17,4 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   
   has_many :childs, class_name: "Comment", foreign_key: "parent_id"
-  belongs_to :comment, class_name: "Comment"
 end

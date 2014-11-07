@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: community_user
+# Table name: community_users
 #
 #  id           :integer          not null, primary key
 #  user_id      :integer
