@@ -46,6 +46,10 @@ end
 
 gem 'devise', '~> 3.4.1'
 
+# Map related gems
+gem 'gmaps4rails', '~> 2.1.2'
+gem 'geocoder', '~> 1.2.5'
+
 group :development do
   gem 'annotate'
   gem 'better_errors'

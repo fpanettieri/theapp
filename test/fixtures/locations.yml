@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  latitude: 1.5
+  longitude: 1.5
+  address: MyString
+  expires: 2014-11-06 18:05:15
+  hours: MyString
+  detail: MyText
+
+two:
+  name: MyString
+  latitude: 1.5
+  longitude: 1.5
+  address: MyString
+  expires: 2014-11-06 18:05:15
+  hours: MyString
+  detail: MyText

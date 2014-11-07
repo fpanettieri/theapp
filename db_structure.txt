@@ -1,0 +1,66 @@
+# Database Structure
+
+1. User - Devise
+ - has_many :communities
+ - has_many :topics
+ - has_many :comments
+ 
+2. Community
+ - has_many :categories
+ + user_id:integer
+ + name:string
+ + description:text
+ / color:string
+
+3. CommunityUsers
+ - belongs_to: user
+ - belongs_to: community
+ + user_id:integer
+ + community_id:integer
+ + admin:boolean
+
+3. Category 
+ - has_one :template
+ - belongs_to :community
+ + community_id:integer
+ + template_id:integer
+ + name:string
+ / icon:string
+ 
+4. Template
+ + name:string
+ + description:text
+ / image:binary
+
+5. Location
+ + name:string
+ + latitude:float
+ + longitude:float
+ + address:string
+ + expires:date
+ + hours:string
+ + detail:text
+ 
+6. Topic
+ - has_many :comments
+ - has_one :location
+ + category_id:integer
+ + location_id:integer
+ + user_id:integer
+ + subject:string
+ + votes:integer
+ + expires:datetime
+ + content:text
+ + comments_count:integer
+ 
+7. Comments
+ - has_many :comments
+ - belongs_to :topic
+ - belongs_to :user
+ + topic_id:integer
+ + user_id:integer
+ + parent_id:integer
+ + votes:integer
+ + content:text
+ 
+ rails generate model User name:string phone:string email:string -p

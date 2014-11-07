@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  community_id: 1
+  template_id: 1
+  name: MyString
+
+two:
+  community_id: 1
+  template_id: 1
+  name: MyString
