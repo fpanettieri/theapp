@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: community_users
+# Table name: community_user
 #
 #  id           :integer          not null, primary key
 #  user_id      :integer
@@ -10,7 +10,7 @@
 #  updated_at   :datetime
 #
 
-class CommunityUsers < ActiveRecord::Base
+class CommunityUser < ActiveRecord::Base
   belongs_to :user
   belongs_to :community
 end

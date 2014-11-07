@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :community_users
   has_many :communities, through: :community_users
   has_many :topics
   has_many :comments
