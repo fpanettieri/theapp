@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
   def map
-    @cname = params[:name]
+    @community = Community.find_by_name(params[:name])
   end
 end

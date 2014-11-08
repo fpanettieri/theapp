@@ -3,10 +3,11 @@ html
   head
     title Coinding :)
     meta name="keywords" content="bitcoin"
-    meta name="author" content=author
-    link rel="icon" type="image/png" href=file_path("favicon.png")
-    javascript:
-      alert('Slim supports embedded javascript!')
+	script src="//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry"
+	script src='//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js'
 
   body
     h1 #{@cname}
+	
+	div id="map" style='width: 100%; height: 400px;'
+	

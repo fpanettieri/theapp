@@ -46,6 +46,7 @@ end
 
 gem 'devise', '~> 3.4.1'
 gem 'slim', '~> 2.1.0'
+gem 'faker', '~> 1.4.3'
 
 # Map related gems
 gem 'gmaps4rails', '~> 2.1.2'
