@@ -1,0 +1,2 @@
+module TopicsControllerHelper
+end

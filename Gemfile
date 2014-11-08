@@ -51,7 +51,6 @@ gem 'slim', '~> 2.1.0'
 gem 'gmaps4rails', '~> 2.1.2'
 gem 'geocoder', '~> 1.2.5'
 
-
 group :development do
   gem 'annotate'
   gem 'better_errors'
