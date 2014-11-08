@@ -44,8 +44,15 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Authentication
 gem 'devise', '~> 3.4.1'
+
+# Front-end
 gem 'slim', '~> 2.1.0'
+gem 'bootstrap-sass', '~> 3.3.0.1'
+gem 'autoprefixer-rails'
+
+# Fake data
 gem 'faker', '~> 1.4.3'
 
 # Map related gems
