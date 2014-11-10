@@ -11,5 +11,5 @@ Exodia::Application.routes.draw do
   resources :locations, path: 'l'
   resources :comments, path: 'r'
   
-  root 'communities#bitcoin' 
+  root 'communities#map' 
 end

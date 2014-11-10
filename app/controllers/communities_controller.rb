@@ -2,7 +2,8 @@ class CommunitiesController < ApplicationController
   def map
     # replace this filter 
     @loc = hot_locations
-    gon.locations = @loc.as_json(:only => [:latitude, :longitude])
+    gon.locations = @loc.as_json(:only => [:id, :latitude, :longitude])
+    gon.locations_path = locations_path
   end
   
   private
