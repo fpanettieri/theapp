@@ -51,12 +51,12 @@ gem 'devise', '~> 3.4.1'
 gem 'slim', '~> 2.1.0'
 gem 'bootstrap-sass', '~> 3.3.0.1'
 gem 'autoprefixer-rails'
+gem 'gon', '~> 5.2.3'
 
 # Fake data
 gem 'faker', '~> 1.4.3'
 
 # Map related gems
-gem 'gmaps4rails', '~> 2.1.2'
 gem 'geocoder', '~> 1.2.5'
 
 group :development do
