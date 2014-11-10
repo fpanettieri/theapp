@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Exodia::Application.config.secret_key_base = 'ed8f6998158a0acfe6bf2342fa76bee9aed994920b1a9e3ae104ebfc67e7c8fcb93ad8821288924d68e7223ae46e1b1e27b54a3cdb1f4226dc0e7f8e68262f96'
+Theapp::Application.config.secret_key_base = 'ed8f6998158a0acfe6bf2342fa76bee9aed994920b1a9e3ae104ebfc67e7c8fcb93ad8821288924d68e7223ae46e1b1e27b54a3cdb1f4226dc0e7f8e68262f96'

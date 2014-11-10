@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Exodia::Application.load_tasks
+Theapp::Application.load_tasks

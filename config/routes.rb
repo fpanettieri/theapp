@@ -1,4 +1,4 @@
-Exodia::Application.routes.draw do
+Theapp::Application.routes.draw do
   devise_for :users, path: 'u', path_names: {sign_in: 'login', sign_out: 'logout'}
   
   get 'c/:name/map' => 'communities#map'
