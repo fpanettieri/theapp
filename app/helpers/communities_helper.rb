@@ -1,2 +1,2 @@
-module CommunitiesControllerHelper
+module CommunitiesHelper
 end

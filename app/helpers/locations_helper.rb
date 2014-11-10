@@ -1,2 +1,2 @@
-module LocationsControllerHelper
+module LocationsHelper
 end

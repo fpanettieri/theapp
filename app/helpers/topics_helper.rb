@@ -1,2 +1,2 @@
-module TopicsControllerHelper
+module TopicsHelper
 end

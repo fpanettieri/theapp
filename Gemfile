@@ -45,19 +45,19 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # Authentication
-gem 'devise', '~> 3.4.1'
+gem 'devise'
 
 # Front-end
-gem 'slim', '~> 2.1.0'
-gem 'bootstrap-sass', '~> 3.3.0.1'
+gem 'slim'
+gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-gem 'gon', '~> 5.2.3'
+gem 'gon'
 
 # Fake data
-gem 'faker', '~> 1.4.3'
+gem 'faker'
 
 # Map related gems
-gem 'geocoder', '~> 1.2.5'
+gem 'geocoder'
 
 group :development do
   gem 'annotate'
