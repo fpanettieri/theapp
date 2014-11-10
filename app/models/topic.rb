@@ -19,4 +19,8 @@ class Topic < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   belongs_to :location
+  
+  def self.hot
+    Topic.joins(:user).select('topics.id, users.name, topics.subject, topics.votes').order('topics.votes desc')
+  end
 end

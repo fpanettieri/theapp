@@ -3,17 +3,23 @@ class CommunitiesController < ApplicationController
   
   def map
     @community = params[:name]
-    # replace this filter 
-    @loc = hot_locations
-    gon.locations = @loc.as_json(:only => [:id, :latitude, :longitude])
+    @loc = Location.hot_map
+    gon.locations = @loc.as_json
+  end
+  
+  def list
+    @community = params[:name]
+    @loc = Location.hot_list
+    gon.locations = @loc.as_json
+  end
+  
+  def feed
+    @community = params[:name]
+    @top = Topic.hot
+    gon.topics = @top.as_json
   end
   
   private
-  def hot_locations
-    # TODO: implement real "hot" filter
-    Location.all
-  end
-  
   def prepare_paths
     gon.locations_path = locations_path
     gon.list_path = url_for controller: 'communities', action: 'list'

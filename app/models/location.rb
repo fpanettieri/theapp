@@ -17,4 +17,12 @@
 class Location < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
+  
+  def self.hot_map
+    Location.select('id, latitude, longitude')
+  end
+  
+  def self.hot_list
+    Location.select('id, name, address')
+  end
 end
