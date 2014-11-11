@@ -7,8 +7,8 @@ function init_gmaps() {
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   
   var location;
-  for(var i = 0; i < gon.locations.length; i++){
-	  location = gon.locations[i];
+  for(var i = 0; i < gon.locs.length; i++){
+	  location = gon.locs[i];
 	  
 	  var marker = new google.maps.Marker({
 	    position: new google.maps.LatLng(location.latitude, location.longitude),

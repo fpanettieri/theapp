@@ -61,8 +61,46 @@ html, body {
 	left: 15px;
 }
 
-.bottom-button {
+#add-spot-btn {
+	position: fixed;
+	top: 5px;
+	right: 5px;
+}
+
+#filter-btn {
+	position: fixed;
+	top: 5px;
+	left: 5px;
+}
+
+#header-container {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: 44px;
+	background-color: #F0F0F0;
+}
+
+#body-container {
 	position: absolute;
+	top: 44px;
+	left: 0px;
+	right: 0px;
+	background-color: #F0F0F0;
+}
+
+#bottom-container {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 60px;
+	background-color: #F0F0F0;
+}
+
+.bottom-button {
+	position: fixed;
 	bottom: 0px;
 	width: 33%;
 	height: 8%;
@@ -84,7 +122,7 @@ html, body {
 }
 
 .bottom-current {
-	position: absolute;
+	position: fixed;
 	bottom: 0px;
 	width: 33%;
 	height: 8%;

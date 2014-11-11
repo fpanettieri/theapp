@@ -27,3 +27,9 @@ Theapp::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 end
+
+class ActionDispatch::Request
+    def ip
+      "216.52.207.74"
+    end
+end
