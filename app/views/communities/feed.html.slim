@@ -1,12 +1,15 @@
 #body-container
 	ul.list-group
 		- for topic in @top do
-			a.list-group-item href="#{topics_path}/#{topic.id}"
+			.list-group-item
 				span#feed-badge.badge = topic.votes
-				i#feed-upvote-btn.glyphicon.glyphicon-chevron-up
-				i#feed-downvote-btn.glyphicon.glyphicon-chevron-down
 				h4.list-group-item-heading = topic.subject
 				small.list-group-item-text = "sent #{time_ago_in_words topic.created_at} ago by #{topic.name}"
+				#feed-detail-link data-redirect="#{topics_path}/#{topic.id}"
+				#feed-votes-container
+					i#feed-upvote-btn.glyphicon.glyphicon-chevron-up data-redirect="#{topics_path}/#{topic.id}/up"	
+					i#feed-downvote-btn.glyphicon.glyphicon-chevron-down data-redirect="#{topics_path}/#{topic.id}/down"
+				
 #header-container
 	button#filter-btn.btn.btn-primary type='button' Filter
 	button#add-spot-btn.btn.btn-primary type='button' Share your experience
@@ -20,5 +23,6 @@ javascript:
 	$('#add-spot-btn').click(function(){ alert('not implemented yet'); });
 	$('#filter-btn').click(function(){ alert('not implemented yet'); });
 	$('#list-btn').click(function(){ window.location = gon.list_path; });
-	$('#map-btn').click(function(){ window.location = gon.map_path; });
-	$('#feed-btn').click(function(){ window.location = gon.feed_path; });
+	$('#feed-detail-link').click(function(){ window.location = $(this).data('redirect'); });
+	$('#feed-upvote-btn').click(function(){ window.location = $(this).data('redirect'); });
+	$('#feed-downvote-btn').click(function(){ window.location = $(this).data('redirect'); });

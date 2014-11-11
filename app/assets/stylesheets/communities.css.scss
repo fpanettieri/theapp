@@ -144,6 +144,22 @@ html, body {
 	left: 67%;
 }
 
+#feed-detail-link {
+	position: absolute;
+	left: 0px;
+	right: 140px;
+	top: 0px;
+	height: 100%;
+}
+
+#feed-votes-container {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	height: 100%;
+	width: 140px;
+}
+
 #feed-badge {
 	margin-top: 14px;
 }

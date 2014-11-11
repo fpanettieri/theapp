@@ -5,6 +5,9 @@ Theapp::Application.routes.draw do
   get 'c/:name/list' => 'communities#list'
   get 'c/:name/feed' => 'communities#feed'
   
+  get 't/:id/up' => 'topics#upvote'
+  get 't/:id/down' => 'topics#downvote'
+  
   resources :community, path: 'c'
   resources :categories, path: 'x'
   resources :topics, path: 't'

@@ -1,2 +1,2 @@
-class LocationsControllerController < ApplicationController
+class LocationsController < ApplicationController
 end
