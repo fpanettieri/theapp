@@ -15,8 +15,8 @@
 	#feed-btn.text-center.noselect.bottom-button Feed
 
 javascript:
-	$('#body-container.list-group-item').click(function(){
-		window.location = gon.locations_path + '/' + $(this).data("id");
-	});
+	$('#add-spot-btn').click(function(){ alert('not implemented yet'); });
+	$('#filter-btn').click(function(){ alert('not implemented yet'); });
+	$('#list-btn').click(function(){ window.location = gon.list_path; });
 	$('#map-btn').click(function(){ window.location = gon.map_path; });
 	$('#feed-btn').click(function(){ window.location = gon.feed_path; });

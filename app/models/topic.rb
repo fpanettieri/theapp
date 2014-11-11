@@ -21,6 +21,6 @@ class Topic < ActiveRecord::Base
   belongs_to :location
   
   def self.hot
-    Topic.joins(:user).select('topics.id, users.name, topics.subject, topics.votes').order('topics.votes desc')
+    Topic.joins(:user).select('topics.id, users.name, topics.subject, topics.votes, topics.created_at').order('topics.votes desc')
   end
 end

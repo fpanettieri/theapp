@@ -143,3 +143,21 @@ html, body {
 #feed-btn {
 	left: 67%;
 }
+
+#feed-badge {
+	margin-top: 14px;
+}
+
+#feed-upvote-btn {
+	position: absolute;
+	top: 16px;
+	right: 50px;
+	margin: 8px;
+}
+
+#feed-downvote-btn {
+	position: absolute;
+	top: 16px;
+	right: 80px;
+	margin: 8px;
+}

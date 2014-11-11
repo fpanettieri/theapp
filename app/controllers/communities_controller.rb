@@ -16,7 +16,6 @@ class CommunitiesController < ApplicationController
   def feed
     @community = params[:name]
     @top = Topic.hot
-    gon.topics = @top.as_json
   end
   
   private
