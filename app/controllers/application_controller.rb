@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :prepare_paths
+  
   protected
 
   def configure_permitted_parameters
@@ -11,4 +13,11 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end  
+  
+  def prepare_paths
+    gon.locations_path = locations_path
+    gon.list_path = '/c/bitcoin/list'
+    gon.map_path = '/c/bitcoin/map'
+    gon.feed_path = '/c/bitcoin/feed'
+  end
 end

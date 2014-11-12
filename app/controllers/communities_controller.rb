@@ -1,5 +1,4 @@
 class CommunitiesController < ApplicationController
-  before_action :prepare_paths, only: [:map, :list, :feed]
   before_action :prepare_location, only: [:map, :list, :feed]
   
   def map
@@ -19,13 +18,6 @@ class CommunitiesController < ApplicationController
   end
   
   private
-  def prepare_paths
-    gon.locations_path = locations_path
-    gon.list_path = url_for controller: 'communities', action: 'list'
-    gon.map_path = url_for controller: 'communities', action: 'map'
-    gon.feed_path = url_for controller: 'communities', action: 'feed'
-  end
-  
   def prepare_location
     if request.location.nil?
       @lon = -32
@@ -34,6 +26,5 @@ class CommunitiesController < ApplicationController
       @lon = request.location.longitude
       @lat = request.location.latitude
     end
-  end
-  
+  end  
 end

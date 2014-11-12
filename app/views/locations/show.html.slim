@@ -1,0 +1,36 @@
+.jumbotron
+	h1 = @location.name
+	- unless @location.address.nil?
+		h3 = @location.address
+	- unless @location.hours.nil?
+		h5 = @location.hours
+	- unless @location.distance.nil?
+		h5 = "#{@location.distance} miles"
+	- unless @location.detail.nil?
+		p = @location.detail
+
+ul.list-group
+- if @location.topics.empty?
+	h3 Be the first to comment!
+- for topic in @location.topics do
+		.list-group-item
+			span#feed-badge.badge = topic.votes
+			h4.list-group-item-heading = topic.subject
+			small.list-group-item-text = "sent #{time_ago_in_words topic.created_at} ago by #{topic.user.name}"
+			#feed-detail-link data-redirect="#{topics_path}/#{topic.id}"
+			#feed-votes-container
+				i.feed-upvote-btn.glyphicon.glyphicon-chevron-up data-redirect="#{topics_path}/#{topic.id}/up?return_url=#{request.fullpath}"	
+				i.feed-downvote-btn.glyphicon.glyphicon-chevron-down data-redirect="#{topics_path}/#{topic.id}/down?return_url=#{request.fullpath}"
+
+#bottom-container
+	#list-btn.text-center.noselect.bottom-button List
+	#map-btn.text-center.noselect.bottom-button Map
+	#feed-btn.text-center.noselect.bottom-button Feed
+
+javascript:
+	$('#list-btn').click(function(){ window.location = gon.list_path; });
+	$('#map-btn').click(function(){ window.location = gon.map_path; });
+	$('#feed-btn').click(function(){ window.location = gon.feed_path; });
+	$('#feed-detail-link').click(function(){ window.location = $(this).data('redirect'); });
+	$('.feed-upvote-btn').click(function(){ window.location = $(this).data('redirect'); });
+	$('.feed-downvote-btn').click(function(){ window.location = $(this).data('redirect'); });

@@ -7,8 +7,8 @@
 				small.list-group-item-text = "sent #{time_ago_in_words topic.created_at} ago by #{topic.name}"
 				#feed-detail-link data-redirect="#{topics_path}/#{topic.id}"
 				#feed-votes-container
-					i.feed-upvote-btn.glyphicon.glyphicon-chevron-up data-redirect="#{topics_path}/#{topic.id}/up"	
-					i.feed-downvote-btn.glyphicon.glyphicon-chevron-down data-redirect="#{topics_path}/#{topic.id}/down"
+					i.feed-upvote-btn.glyphicon.glyphicon-chevron-up data-redirect="#{topics_path}/#{topic.id}/up?return_url=#{request.fullpath}"	
+					i.feed-downvote-btn.glyphicon.glyphicon-chevron-down data-redirect="#{topics_path}/#{topic.id}/down?return_url=#{request.fullpath}"
 				
 #header-container
 	button#filter-btn.btn.btn-primary type='button' Filter
