@@ -12,7 +12,7 @@
 ul.list-group
 - if @location.topics.empty?
 	h3 Be the first to comment!
-- for topic in @location.topics do
+- for topic in @topics do
 		.list-group-item
 			span#feed-badge.badge = topic.votes
 			h4.list-group-item-heading = topic.subject

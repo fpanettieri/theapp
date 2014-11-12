@@ -1,4 +1,8 @@
 class TopicsController < ApplicationController
+  def show
+    @topic = Topic.eager_load(:comments).find(params[:id])  
+  end
+  
   def upvote
     topic = Topic.find(params[:id])
     topic.votes += 1
