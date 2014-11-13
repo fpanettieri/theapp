@@ -9,10 +9,11 @@
 	- unless @location.detail.nil?
 		p = @location.detail
 
-ul.list-group
 - if @location.topics.empty?
-	h3 Be the first to comment!
-- for topic in @topics do
+	h4 Be the first to comment!
+- else
+	ul.list-group
+	- for topic in @topics do
 		.list-group-item
 			span#feed-badge.badge = topic.votes
 			h4.list-group-item-heading = topic.subject

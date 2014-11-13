@@ -1,8 +1,19 @@
 .jumbotron
 	h1 = @topic.subject
-
+	p.lead = @topic.content
 	small = "sent #{time_ago_in_words @topic.created_at} ago by #{@topic.user.name}"
-	p = @topic.content
+
+- if @comments.empty?
+	h4 Be the first to comment!
+- else
+	ul.list-group
+	- for comment in @comments do
+		.list-group-item.comment-depth-color style="border-left-width: #{comment.depth*10}px;"
+			span.comment-badge.badge = comment.votes
+			p = comment.content
+			small.list-group-item-text = "sent #{time_ago_in_words comment.created_at} ago by #{comment.user.name}"
+			#feed-votes-container
+				i.comment-upvote-btn.glyphicon.glyphicon-chevron-up data-redirect="#{comments_path}/#{comment.id}/up?return_url=#{request.fullpath}"	
 
 #bottom-container
 	#list-btn.text-center.noselect.bottom-button List
@@ -13,3 +24,5 @@ javascript:
 	$('#list-btn').click(function(){ window.location = gon.list_path; });
 	$('#map-btn').click(function(){ window.location = gon.map_path; });
 	$('#feed-btn').click(function(){ window.location = gon.feed_path; });
+	$('#feed-detail-link').click(function(){ window.location = $(this).data('redirect'); });
+	$('.comment-upvote-btn').click(function(){ window.location = $(this).data('redirect'); });

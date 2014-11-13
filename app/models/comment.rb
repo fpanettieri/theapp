@@ -16,5 +16,8 @@ class Comment < ActiveRecord::Base
   belongs_to :topic
   belongs_to :user
   
-  has_many :childs, class_name: "Comment", foreign_key: "parent_id"
+  has_many :comments, class_name: "Comment", foreign_key: "parent_id"
+  
+  attr_accessor :depth
+  
 end
