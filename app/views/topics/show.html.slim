@@ -2,9 +2,13 @@
 	h1 = @topic.subject
 	p.lead = @topic.content
 	small = "sent #{time_ago_in_words @topic.created_at} ago by #{@topic.user.name}"
+	br
+	br
+	button#comment-btn.btn.btn-primary.btn-lg type="button" data-redirect="#{topics_path}/#{@topic.id}/comment" Comment
 
 - if @comments.empty?
-	h4 Be the first to comment!
+	.container-fluid
+		h4 Be the first to comment!
 - else
 	ul.list-group
 	- for comment in @comments do
@@ -12,8 +16,12 @@
 			span.comment-badge.badge = comment.votes
 			p = comment.content
 			small.list-group-item-text = "sent #{time_ago_in_words comment.created_at} ago by #{comment.user.name}"
+			small
+				br
+				a href="#{comments_path}/#{comment.id}/comment" comment 
 			#feed-votes-container
 				i.comment-upvote-btn.glyphicon.glyphicon-chevron-up data-redirect="#{comments_path}/#{comment.id}/up?return_url=#{request.fullpath}"	
+				i.comment-downvote-btn.glyphicon.glyphicon-chevron-down data-redirect="#{comments_path}/#{comment.id}/down?return_url=#{request.fullpath}"	
 
 #bottom-container
 	#list-btn.text-center.noselect.bottom-button List
@@ -24,5 +32,6 @@ javascript:
 	$('#list-btn').click(function(){ window.location = gon.list_path; });
 	$('#map-btn').click(function(){ window.location = gon.map_path; });
 	$('#feed-btn').click(function(){ window.location = gon.feed_path; });
-	$('#feed-detail-link').click(function(){ window.location = $(this).data('redirect'); });
 	$('.comment-upvote-btn').click(function(){ window.location = $(this).data('redirect'); });
+	$('.comment-downvote-btn').click(function(){ window.location = $(this).data('redirect'); });
+	$('#comment-btn').click(function(){ window.location = $(this).data('redirect'); });
