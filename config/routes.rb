@@ -13,8 +13,13 @@ Theapp::Application.routes.draw do
   get 't/:id/comment' => 'topics#comment'
   post 't/:id/comment' => 'topics#post_comment'
   
+  # Comments voting
   get 'r/:id/up' => 'comments#upvote'
   get 'r/:id/down' => 'comments#downvote'
+  
+  # Comments comments
+  get 'r/:id/comment' => 'comments#comment'
+  post 'r/:id/comment' => 'comments#post_comment'
   
   resources :community, path: 'c'
   resources :categories, path: 'x'

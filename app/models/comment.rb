@@ -19,5 +19,4 @@ class Comment < ActiveRecord::Base
   has_many :comments, class_name: "Comment", foreign_key: "parent_id"
   
   attr_accessor :depth
-  
 end

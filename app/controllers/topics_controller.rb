@@ -1,13 +1,12 @@
 class TopicsController < ApplicationController
   def show
-    @topic = Topic.eager_load(:comments).find(params[:id]) 
+    @topic = Topic.eager_load(:comments).where('parent_id IS NULL').find(params[:id])
     @comments = []
     flatten @topic, 0
   end
   
   def comment
     @topic = Topic.find(params[:id])
-    @comment = Comment.new
   end
   
   def post_comment
@@ -39,6 +38,7 @@ class TopicsController < ApplicationController
   def flatten(parent, depth)
     return if parent.comments.empty?
     parent.comments.order("votes desc").each do |comment|
+      next if depth.eql? 0 and !comment.parent_id.nil? 
       comment.depth = depth
       @comments << comment unless @comments.include? comment
       flatten comment, depth + 1

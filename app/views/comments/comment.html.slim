@@ -3,9 +3,16 @@
 	p.lead = @topic.content
 	small = "sent #{time_ago_in_words @topic.created_at} ago by #{@topic.user.name}"
 
+ul.list-group
+	.list-group-item.comment-depth-color
+		span.comment-badge.badge = @comment.votes
+		p = @comment.content
+		small.list-group-item-text = "sent #{time_ago_in_words @comment.created_at} ago by #{@comment.user.name}"
+
 .container-fluid
-	form role="form" action="#{topics_path}/#{@topic.id}/comment" method="post"
-		= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
+	form role="form" action="#{comments_path}/#{@comment.id}/comment" method="post"
+		= tag(:input, type: "hidden", name: request_forgery_protection_token.to_s, value: form_authenticity_token)
+		= tag(:input, type: "hidden", name: "parent", value:  @comment.id)
 		.form-group
 			label for="content" Comment
 			input.form-control type="text" name="content"
