@@ -2,6 +2,15 @@
 	h1 New Topic
 	form role="form" action="#{topics_path}" method="post"
 		= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
+
+		.form-group
+			label for="subject" Subject
+			input.form-control type="text" name="subject" placeholder="e.g. This place is awesome!"
+			
+		.form-group
+			label for="content" Content
+			input.form-control type="textarea" name="content" placeholder="e.g. I am SOOOO stoked to write this review!  We used to have the most incredible Thai restaurant in HMB ..."
+			
 		.form-group
 			label for="category" Category
 			.dropdown
@@ -30,14 +39,6 @@
 						- for location in @locations do
 							li role="presentation"
 								a role="menuitem" href="#" = location.name
-			
-		.form-group
-			label for="subject" Subject
-			input.form-control type="text" name="subject" placeholder="e.g. This place is awesome!"
-			
-		.form-group
-			label for="content" Content
-			input.form-control type="textarea" name="content" placeholder="e.g. I am SOOOO stoked to write this review!  We used to have the most incredible Thai restaurant in HMB ..."
 			
 		button.btn.btn-default type="submit" Submit
 

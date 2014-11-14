@@ -17,22 +17,14 @@ class TopicsController < ApplicationController
   end
   
   def create
-    p "-----------------------------------------------"
-    p "-----------------------------------------------"
-    p "-----------------------------------------------"
-    p "-----------------------------------------------"
+    if params.has_key? :category
+      category_id = Category.where(name: "#{params[:category]}").first.id
+    else
+      category_id = Category.where(name: "Other")
+    end
     
-    p params[:category]
-    p params[:location]
-    p params[:subject]
-    p params[:content]
-    
-    p "-----------------------------------------------"
-    p "-----------------------------------------------"
-    p "-----------------------------------------------"
-    p "-----------------------------------------------"
     topic = Topic.new
-    topic.category_id = Category.where(name: "#{params[:category]}").first.id
+    topic.category_id = category_id
     topic.location_id = Location.where(name: "#{params[:location]}").first.id
     topic.user_id = random_user.id
     topic.subject = params[:subject]

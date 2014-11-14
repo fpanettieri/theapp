@@ -36,7 +36,8 @@ categories = [
   Category.create!(community_id: community.id, template: templates[0], name: 'Coffee'),
   Category.create!(community_id: community.id, template: templates[0], name: 'Shop'),
   Category.create!(community_id: community.id, template: templates[0], name: 'Online'),
-  Category.create!(community_id: community.id, template: templates[0], name: 'BTM')
+  Category.create!(community_id: community.id, template: templates[0], name: 'BTM'),
+  Category.create!(community_id: community.id, template: templates[0], name: 'Other')
 ]
 
 puts 'Seeding Locations'
