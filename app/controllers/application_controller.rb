@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   
   def prepare_paths
     gon.locations_path = locations_path
+    gon.topics_path = topics_path
     gon.list_path = '/c/bitcoin/list'
     gon.map_path = '/c/bitcoin/map'
     gon.feed_path = '/c/bitcoin/feed'

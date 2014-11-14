@@ -3,8 +3,10 @@
 	p.lead = @topic.content
 	small = "sent #{time_ago_in_words @topic.created_at} ago by #{@topic.user.name}"
 	br
+	a href="#{locations_path}/#{@topic.location.id}" = "@ #{@topic.location.name}"
 	br
-	button#comment-btn.btn.btn-primary.btn-lg type="button" data-redirect="#{topics_path}/#{@topic.id}/comment" Comment
+	br
+	button#comment-btn.btn.btn-primary type="button" data-redirect="#{topics_path}/#{@topic.id}/comment" Comment
 
 - if @comments.empty?
 	.container-fluid
