@@ -1,0 +1,58 @@
+.container-fluid
+	h1 New Topic
+	form role="form" action="#{topics_path}" method="post"
+		= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
+		.form-group
+			label for="category" Category
+			.dropdown
+				= tag(:input, :type => "hidden", :name => "category")
+				button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown" aria-expanded="true" Category
+				ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"
+					- for category in @categories do
+						li role="presentation"
+							a role="menuitem" href="#" = category.name
+							
+		.form-group
+			label for="location" Location
+			- if @location.nil?
+				.dropdown
+					= tag(:input, :type => "hidden", :name => "location")	
+					button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown" aria-expanded="true" Location
+					ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"
+						- for location in @locations do
+							li role="presentation"
+								a role="menuitem" href="#" = location.name
+			- else
+				.dropdown
+					= tag(:input, :type => "hidden", :name => "location", :value => @location.name)	
+					button.btn.btn-default.dropdown-toggle type="button" data-toggle="dropdown" aria-expanded="true" = @location.name
+					ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"
+						- for location in @locations do
+							li role="presentation"
+								a role="menuitem" href="#" = location.name
+			
+		.form-group
+			label for="subject" Subject
+			input.form-control type="text" name="subject" placeholder="e.g. This place is awesome!"
+			
+		.form-group
+			label for="content" Content
+			input.form-control type="textarea" name="content" placeholder="e.g. I am SOOOO stoked to write this review!  We used to have the most incredible Thai restaurant in HMB ..."
+			
+		button.btn.btn-default type="submit" Submit
+
+#bottom-container
+	#list-btn.text-center.noselect.bottom-button List
+	#map-btn.text-center.noselect.bottom-button Map
+	#feed-btn.text-center.noselect.bottom-button Feed
+
+javascript:
+	$('#list-btn').click(function(){ window.location = gon.list_path; });
+	$('#map-btn').click(function(){ window.location = gon.map_path; });
+	$('#feed-btn').click(function(){ window.location = gon.feed_path; });
+	$(".dropdown li a").click(function(){
+		var selText = $(this).text();
+		$(this).parents('.dropdown').find('button.btn').html(selText);
+		$(this).parents('.dropdown').find('input').val(selText);
+	});
+	

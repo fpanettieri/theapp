@@ -8,6 +8,7 @@
 		h5 = "#{@location.distance} miles"
 	- unless @location.detail.nil?
 		p = @location.detail
+	button#comment-btn.btn.btn-primary.btn-lg type="button" data-redirect="#{topics_path}/new?location_id=#{@location.id}" New topic
 
 - if @location.topics.empty?
 	h4 Be the first to comment!
@@ -35,3 +36,4 @@ javascript:
 	$('#feed-detail-link').click(function(){ window.location = $(this).data('redirect'); });
 	$('.feed-upvote-btn').click(function(){ window.location = $(this).data('redirect'); });
 	$('.feed-downvote-btn').click(function(){ window.location = $(this).data('redirect'); });
+	$('#comment-btn').click(function(){ window.location = $(this).data('redirect'); });

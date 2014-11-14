@@ -5,6 +5,43 @@ class TopicsController < ApplicationController
     flatten @topic, 0
   end
   
+  def new
+    @topic = Topic.new
+    @locations = Location.all
+    @categories = Category.all
+    if params.has_key? :location_id
+      @location = Location.find(params[:location_id])
+    else 
+      @location = nil
+    end
+  end
+  
+  def create
+    p "-----------------------------------------------"
+    p "-----------------------------------------------"
+    p "-----------------------------------------------"
+    p "-----------------------------------------------"
+    
+    p params[:category]
+    p params[:location]
+    p params[:subject]
+    p params[:content]
+    
+    p "-----------------------------------------------"
+    p "-----------------------------------------------"
+    p "-----------------------------------------------"
+    p "-----------------------------------------------"
+    topic = Topic.new
+    topic.category_id = Category.where(name: "#{params[:category]}").first.id
+    topic.location_id = Location.where(name: "#{params[:location]}").first.id
+    topic.user_id = random_user.id
+    topic.subject = params[:subject]
+    topic.votes = 0
+    topic.content = params[:content]
+    topic.save
+    gon.return_url = "#{topics_path}/#{topic.id}"
+  end
+  
   def comment
     @topic = Topic.find(params[:id])
   end
