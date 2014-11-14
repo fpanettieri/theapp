@@ -9,7 +9,7 @@
 
 script src="https://maps.google.com/maps/api/js?v=3.exp&sensor=true&callback=init_gmaps"
 javascript:
-	$('#add-spot').click(function(){ alert('not implemented yet'); });
+	$('#add-spot').click(function(){ window.location = gon.locations_path + "/new" });
 	$('#list-btn').click(function(){ window.location = gon.list_path; });
 	$('#map-btn').click(function(){ window.location = gon.map_path; });
 	$('#feed-btn').click(function(){ window.location = gon.feed_path; });

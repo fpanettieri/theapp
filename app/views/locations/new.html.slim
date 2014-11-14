@@ -1,0 +1,27 @@
+.container-fluid
+	h1 New Location
+	form role="form" action="#{locations_path}" method="post"
+		= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
+		.form-group
+			label for="name" Name
+			input.form-control type="text" name="name" placeholder="e.g. San Antonio Shopping Center"
+		.form-group
+			label for="address" Address
+			input.form-control type="text" name="address" placeholder="e.g. 2550 W El Camino Real, Mountain View"
+		.form-group
+			label for="hours" Hours
+			input.form-control type="text" name="hours" placeholder="e.g. 11:00–14:30, 17:00–21:30"
+		.form-group
+			label for="detail" Detail
+			input.form-control type="textarea" name="detail" placeholder="e.g.  It is one of the biggest shopping malls ..."
+		button.btn.btn-default type="submit" Submit
+
+#bottom-container
+	#list-btn.text-center.noselect.bottom-button List
+	#map-btn.text-center.noselect.bottom-button Map
+	#feed-btn.text-center.noselect.bottom-button Feed
+
+javascript:
+	$('#list-btn').click(function(){ window.location = gon.list_path; });
+	$('#map-btn').click(function(){ window.location = gon.map_path; });
+	$('#feed-btn').click(function(){ window.location = gon.feed_path; });
